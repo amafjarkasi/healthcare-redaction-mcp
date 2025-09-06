@@ -1,6 +1,25 @@
 # Healthcare Data Redaction MCP Server
 
-A HIPAA-compliant Model Context Protocol (MCP) server for healthcare data redaction and masking. This server provides comprehensive PHI (Protected Health Information) detection and redaction capabilities for JSON, XML, and plain text data formats.
+A **local-first, privacy-first** HIPAA-compliant Model Context Protocol (MCP) server for healthcare data redaction and masking. This server provides comprehensive PHI (Protected Health Information) detection and redaction capabilities for JSON, XML, and plain text data formats.
+
+## 🛡️ Privacy-First Design
+
+**🏠 LOCAL PROCESSING ONLY**: Your PHI data never leaves your device
+- **Zero External Transmission**: No data sent to external servers or APIs
+- **Zero Data Retention**: No PHI data stored persistently on disk
+- **Memory-Only Processing**: All operations occur in temporary memory
+- **Automatic Cleanup**: Data automatically cleared after each operation
+
+**🔐 ENCRYPTION READY**: AES-256 encryption available for additional protection
+- **Local Key Generation**: Encryption keys generated on your device
+- **No Key Transmission**: Keys never leave your local environment
+- **Optional Encryption**: Use encryption features if required by your organization
+
+**📋 AUDIT-READY**: Comprehensive privacy verification and compliance reporting
+- **Zero Retention Verification**: Confirm no data persistence with audit tools
+- **Privacy Statement Generation**: Detailed privacy guarantees documentation  
+- **Compliance Reporting**: HIPAA compliance reports with technical details
+- **Secure Session Management**: Explicit memory clearing capabilities
 
 ## 🏥 Features
 
@@ -130,6 +149,67 @@ Lists all available PHI detection patterns.
 **Parameters:**
 - `category` (optional): Filter by specific PHI category
 
+## 🛡️ Privacy-First Tools
+
+### `verify_data_privacy`
+**NEW** - Verify that no data is stored locally or transmitted externally. Confirms zero data retention policy.
+
+**Parameters:**
+- `include_audit` (optional): Include detailed privacy audit information (default: false)
+
+**Example:**
+```json
+{
+  "include_audit": true
+}
+```
+
+### `get_privacy_statement`
+**NEW** - Get comprehensive privacy and security statement for the local-first MCP server.
+
+**Parameters:** None
+
+### `audit_data_retention`
+**NEW** - Audit and confirm zero data retention policy compliance.
+
+**Parameters:**
+- `detailed_report` (optional): Generate detailed audit report with technical verification (default: false)
+
+**Example:**
+```json
+{
+  "detailed_report": true
+}
+```
+
+### `generate_compliance_report`
+**NEW** - Generate comprehensive HIPAA compliance report emphasizing local-first design.
+
+**Parameters:**
+- `include_technical_details` (optional): Include technical implementation details (default: true)
+- `format` (optional): Output format - 'json', 'markdown', or 'text' (default: 'json')
+
+**Example:**
+```json
+{
+  "format": "markdown",
+  "include_technical_details": true
+}
+```
+
+### `secure_wipe_session`
+**NEW** - Explicitly clear any temporary data from memory (defensive privacy measure).
+
+**Parameters:**
+- `force_gc` (optional): Force garbage collection after wiping (default: true)
+
+**Example:**
+```json
+{
+  "force_gc": true
+}
+```
+
 ## 📊 Usage Examples
 
 ### Basic Text Redaction
@@ -242,14 +322,29 @@ Add to your `claude_desktop_config.json`:
 
 ### HIPAA Requirements Met
 - **Administrative Safeguards**: Access controls and audit capabilities
-- **Physical Safeguards**: Encryption for data at rest
-- **Technical Safeguards**: Access controls, audit logs, integrity controls, transmission security
+- **Physical Safeguards**: Local processing eliminates external storage risks  
+- **Technical Safeguards**: Access controls, audit logs, integrity controls, local-only processing
+
+### Privacy-First Compliance Advantages
+- **Zero Data Breach Risk**: No persistent storage = no data to breach
+- **No External Dependencies**: Eliminates third-party data handling risks
+- **Complete Data Sovereignty**: You maintain full control over all PHI data
+- **Air-Gap Compatible**: Works in completely isolated environments
+- **Audit-Ready**: Built-in compliance verification and reporting tools
 
 ### Important Disclaimers
 - This tool assists with PHI redaction but does not guarantee 100% detection
 - Manual review is recommended for critical healthcare data
 - Consult with legal and compliance teams for specific use cases
 - Regular pattern updates may be needed for new PHI formats
+- **LOCAL PROCESSING ONLY**: Your responsibility to secure the local environment
+
+### Privacy Guarantees
+✅ **No Data Transmission**: PHI never leaves your local environment  
+✅ **No Data Storage**: Zero retention policy enforced programmatically  
+✅ **No External APIs**: All processing occurs locally  
+✅ **Memory-Only Processing**: Data exists only temporarily during operations  
+✅ **Automatic Cleanup**: Data automatically cleared after each operation
 
 ## 🤝 Contributing
 

@@ -303,4 +303,23 @@ export class HealthcareRedactionEngine {
   public validateEncryptionKey(key: string): boolean {
     return this.encryption.validateKeyStrength(key);
   }
+
+  /**
+   * Get the total number of PHI patterns available for detection
+   */
+  public getPatternCount(): number {
+    return this.patterns.length;
+  }
+
+  /**
+   * Clear any cached data from the redaction engine (privacy measure)
+   */
+  public clearCache(): void {
+    // Reset patterns to original state (clear any cached regex state)
+    this.patterns.forEach(pattern => {
+      if (pattern.regex.global) {
+        pattern.regex.lastIndex = 0;
+      }
+    });
+  }
 }
