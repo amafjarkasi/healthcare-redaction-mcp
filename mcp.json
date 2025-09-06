@@ -1,0 +1,41 @@
+{
+  "name": "healthcare-redaction-mcp",
+  "displayName": "Healthcare Data Redaction MCP Server", 
+  "description": "HIPAA-compliant MCP server for redacting PHI from healthcare data",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "capabilities": {
+    "tools": {
+      "redact_healthcare_data": {
+        "description": "Redact PHI from healthcare data (JSON, XML, text)",
+        "categories": ["healthcare", "privacy", "hipaa", "redaction"]
+      },
+      "analyze_phi_risk": {
+        "description": "Analyze healthcare data for PHI risk assessment", 
+        "categories": ["healthcare", "privacy", "risk", "assessment"]
+      },
+      "generate_encryption_key": {
+        "description": "Generate HIPAA-compliant encryption keys",
+        "categories": ["security", "encryption", "hipaa"]
+      }
+    }
+  },
+  "categories": ["healthcare", "privacy", "security", "hipaa", "redaction"],
+  "author": "Healthcare Redaction MCP",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amafjarkasi/healthcare-redaction-mcp.git"
+  },
+  "keywords": [
+    "healthcare",
+    "redaction", 
+    "hipaa",
+    "phi",
+    "privacy",
+    "mcp",
+    "medical",
+    "emr",
+    "encryption"
+  ]
+}
