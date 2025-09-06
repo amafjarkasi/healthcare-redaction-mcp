@@ -1,0 +1,29 @@
+{
+  "name": "healthcare-redaction-mcp",
+  "version": "1.0.0",
+  "description": "HIPAA-compliant MCP server for healthcare data redaction and masking",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["healthcare", "redaction", "hipaa", "mcp", "phi", "privacy"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "@types/node": "^24.3.1",
+    "@types/uuid": "^10.0.0",
+    "@types/xml2js": "^0.4.14",
+    "crypto-js": "^4.2.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "uuid": "^12.0.0",
+    "xml2js": "^0.6.2"
+  }
+}
