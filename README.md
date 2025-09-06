@@ -96,6 +96,10 @@ A **local-first, privacy-first** HIPAA-compliant Model Context Protocol (MCP) se
 
 ## 🛠️ MCP Tools Available
 
+**The Healthcare Redaction MCP Server provides 10 comprehensive tools:**
+
+### 🔒 Core Redaction Tools
+
 ### `redact_healthcare_data`
 Primary tool for redacting PHI from healthcare data.
 
@@ -129,6 +133,8 @@ Analyzes healthcare data for PHI risk without redacting.
 - PHI detection summary
 - Compliance recommendations
 - Category breakdown
+
+### 🔐 Encryption & Security Tools
 
 ### `generate_encryption_key`
 Generates a HIPAA-compliant 256-bit AES encryption key.
@@ -368,6 +374,23 @@ For issues, questions, or feature requests:
 ## 🔄 Version History
 
 - **v1.0.0**: Initial release with comprehensive PHI detection, HIPAA encryption, and MCP server implementation
+
+## 🚀 Quick Reference
+
+| Tool Category | Tool Name | Purpose |
+|---------------|-----------|---------|
+| **Core Redaction** | `redact_healthcare_data` | Redact PHI from text/JSON/XML |
+| | `analyze_phi_risk` | Analyze PHI risk without redaction |
+| **Encryption** | `generate_encryption_key` | Generate AES-256 keys |
+| | `validate_encryption_key` | Validate key strength |
+| | `list_phi_patterns` | List detection patterns |
+| **Privacy Tools** | `verify_data_privacy` | Confirm zero retention |
+| | `get_privacy_statement` | Get privacy guarantees |
+| | `audit_data_retention` | Audit compliance |
+| | `generate_compliance_report` | Generate HIPAA reports |
+| | `secure_wipe_session` | Clear memory data |
+
+**Total: 10 MCP Tools** - 5 Core + 5 Privacy-First Tools
 
 ---
 
