@@ -1,6 +1,25 @@
 # Healthcare Data Redaction MCP Server
 
-A HIPAA-compliant Model Context Protocol (MCP) server for healthcare data redaction and masking. This server provides comprehensive PHI (Protected Health Information) detection and redaction capabilities for JSON, XML, and plain text data formats.
+A **local-first, privacy-first** HIPAA-compliant Model Context Protocol (MCP) server for healthcare data redaction and masking. This server provides comprehensive PHI (Protected Health Information) detection and redaction capabilities for JSON, XML, and plain text data formats.
+
+## 🛡️ Privacy-First Design
+
+**🏠 LOCAL PROCESSING ONLY**: Your PHI data never leaves your device
+- **Zero External Transmission**: No data sent to external servers or APIs
+- **Zero Data Retention**: No PHI data stored persistently on disk
+- **Memory-Only Processing**: All operations occur in temporary memory
+- **Automatic Cleanup**: Data automatically cleared after each operation
+
+**🔐 ENCRYPTION READY**: AES-256 encryption available for additional protection
+- **Local Key Generation**: Encryption keys generated on your device
+- **No Key Transmission**: Keys never leave your local environment
+- **Optional Encryption**: Use encryption features if required by your organization
+
+**📋 AUDIT-READY**: Comprehensive privacy verification and compliance reporting
+- **Zero Retention Verification**: Confirm no data persistence with audit tools
+- **Privacy Statement Generation**: Detailed privacy guarantees documentation  
+- **Compliance Reporting**: HIPAA compliance reports with technical details
+- **Secure Session Management**: Explicit memory clearing capabilities
 
 ## 🏥 Features
 
@@ -77,6 +96,10 @@ A HIPAA-compliant Model Context Protocol (MCP) server for healthcare data redact
 
 ## 🛠️ MCP Tools Available
 
+**The Healthcare Redaction MCP Server provides 10 comprehensive tools:**
+
+### 🔒 Core Redaction Tools
+
 ### `redact_healthcare_data`
 Primary tool for redacting PHI from healthcare data.
 
@@ -111,6 +134,8 @@ Analyzes healthcare data for PHI risk without redacting.
 - Compliance recommendations
 - Category breakdown
 
+### 🔐 Encryption & Security Tools
+
 ### `generate_encryption_key`
 Generates a HIPAA-compliant 256-bit AES encryption key.
 
@@ -129,6 +154,67 @@ Lists all available PHI detection patterns.
 
 **Parameters:**
 - `category` (optional): Filter by specific PHI category
+
+## 🛡️ Privacy-First Tools
+
+### `verify_data_privacy`
+**NEW** - Verify that no data is stored locally or transmitted externally. Confirms zero data retention policy.
+
+**Parameters:**
+- `include_audit` (optional): Include detailed privacy audit information (default: false)
+
+**Example:**
+```json
+{
+  "include_audit": true
+}
+```
+
+### `get_privacy_statement`
+**NEW** - Get comprehensive privacy and security statement for the local-first MCP server.
+
+**Parameters:** None
+
+### `audit_data_retention`
+**NEW** - Audit and confirm zero data retention policy compliance.
+
+**Parameters:**
+- `detailed_report` (optional): Generate detailed audit report with technical verification (default: false)
+
+**Example:**
+```json
+{
+  "detailed_report": true
+}
+```
+
+### `generate_compliance_report`
+**NEW** - Generate comprehensive HIPAA compliance report emphasizing local-first design.
+
+**Parameters:**
+- `include_technical_details` (optional): Include technical implementation details (default: true)
+- `format` (optional): Output format - 'json', 'markdown', or 'text' (default: 'json')
+
+**Example:**
+```json
+{
+  "format": "markdown",
+  "include_technical_details": true
+}
+```
+
+### `secure_wipe_session`
+**NEW** - Explicitly clear any temporary data from memory (defensive privacy measure).
+
+**Parameters:**
+- `force_gc` (optional): Force garbage collection after wiping (default: true)
+
+**Example:**
+```json
+{
+  "force_gc": true
+}
+```
 
 ## 📊 Usage Examples
 
@@ -242,14 +328,29 @@ Add to your `claude_desktop_config.json`:
 
 ### HIPAA Requirements Met
 - **Administrative Safeguards**: Access controls and audit capabilities
-- **Physical Safeguards**: Encryption for data at rest
-- **Technical Safeguards**: Access controls, audit logs, integrity controls, transmission security
+- **Physical Safeguards**: Local processing eliminates external storage risks  
+- **Technical Safeguards**: Access controls, audit logs, integrity controls, local-only processing
+
+### Privacy-First Compliance Advantages
+- **Zero Data Breach Risk**: No persistent storage = no data to breach
+- **No External Dependencies**: Eliminates third-party data handling risks
+- **Complete Data Sovereignty**: You maintain full control over all PHI data
+- **Air-Gap Compatible**: Works in completely isolated environments
+- **Audit-Ready**: Built-in compliance verification and reporting tools
 
 ### Important Disclaimers
 - This tool assists with PHI redaction but does not guarantee 100% detection
 - Manual review is recommended for critical healthcare data
 - Consult with legal and compliance teams for specific use cases
 - Regular pattern updates may be needed for new PHI formats
+- **LOCAL PROCESSING ONLY**: Your responsibility to secure the local environment
+
+### Privacy Guarantees
+✅ **No Data Transmission**: PHI never leaves your local environment  
+✅ **No Data Storage**: Zero retention policy enforced programmatically  
+✅ **No External APIs**: All processing occurs locally  
+✅ **Memory-Only Processing**: Data exists only temporarily during operations  
+✅ **Automatic Cleanup**: Data automatically cleared after each operation
 
 ## 🤝 Contributing
 
@@ -273,6 +374,23 @@ For issues, questions, or feature requests:
 ## 🔄 Version History
 
 - **v1.0.0**: Initial release with comprehensive PHI detection, HIPAA encryption, and MCP server implementation
+
+## 🚀 Quick Reference
+
+| Tool Category | Tool Name | Purpose |
+|---------------|-----------|---------|
+| **Core Redaction** | `redact_healthcare_data` | Redact PHI from text/JSON/XML |
+| | `analyze_phi_risk` | Analyze PHI risk without redaction |
+| **Encryption** | `generate_encryption_key` | Generate AES-256 keys |
+| | `validate_encryption_key` | Validate key strength |
+| | `list_phi_patterns` | List detection patterns |
+| **Privacy Tools** | `verify_data_privacy` | Confirm zero retention |
+| | `get_privacy_statement` | Get privacy guarantees |
+| | `audit_data_retention` | Audit compliance |
+| | `generate_compliance_report` | Generate HIPAA reports |
+| | `secure_wipe_session` | Clear memory data |
+
+**Total: 10 MCP Tools** - 5 Core + 5 Privacy-First Tools
 
 ---
 
